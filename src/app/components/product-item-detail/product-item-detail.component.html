@@ -1,0 +1,10 @@
+<div class="detail-container">
+    <img class="img" src={{product.url}}>
+    <div class="detail-item">
+        <h4>{{product.name}}</h4>
+        <p>${{product.price}}</p>
+        <p>${{product.description}}</p>
+        <app-option-select-quantity [product]="product"></app-option-select-quantity>
+        <a class="back-link" routerLink="">Back to product list</a>
+    </div>
+</div>

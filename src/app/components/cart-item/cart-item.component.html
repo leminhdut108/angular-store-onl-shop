@@ -1,0 +1,18 @@
+<div class="cart-item">
+  <img class="img" src="{{ cart.url }}" alt="" />
+  <div class="cart-item-details">
+    <h6>{{ cart.name }}</h6>
+    <p>${{ cart.price }}</p>
+    <p>
+      Amount:
+      <input
+        class="number-input"
+        type="number"
+        min="0"
+        required
+        [(ngModel)]="cart.quantity"
+        (ngModelChange)="amountChange($event)"
+      />
+    </p>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="cart-container">
+    <div class="cart-panel">
+        <app-cart-item *ngFor="let cart of cartList" [cart]="cart" (changeAmount)="amountChange($event)"></app-cart-item>
+        <h3>Total: ${{total.toFixed(2)}}</h3>
+    </div>
+    <form #form="ngForm" (ngSubmit)="submitForm()" class="form-margin">
+        <label class="form-label" for="fullName">Full name</label>
+        <input class="form-control" type="text" placeholder="(minimum 3 characters)" name="fullName" [(ngModel)]="fullName" required minlength="3">
+        <label for="address" class="mt-2 form-label">Address</label>
+        <input class="form-control" type="text" placeholder="(minimum 6 characters)" name="address" [(ngModel)]="address" required minlength="6">
+        <label for="creditCard" class="mt-2 form-label">Credit card</label>
+        <input class="form-control" type="text" placeholder="(16-digit-number)" name="creditCard" [(ngModel)]="creditCard" pattern="[0-9]{16}" required >
+        <small>We'll never share your payment details with anyone else.</small>
+        <br>
+        <button type="submit" [disabled]="form.invalid" value="submit" class="btn btn-primary mt-2">Submit</button>
+      </form>
+</div>
