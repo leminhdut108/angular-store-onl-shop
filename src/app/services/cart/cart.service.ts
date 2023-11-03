@@ -7,17 +7,17 @@ import Cart from '../../components/models/cart';
 export class CartService {
   cartList: Cart[] = [];
   constructor() {
-    console.log(this.cartList);
+    console.log('this.cartList', this.cartList);
   }
 
   addItemToCart(cart: Cart): void {
     const findProd = this.cartList.find((item) => item.id === cart.id);
     if (findProd) {
-      findProd.quantity = findProd.quantity + cart.quantity;
+      findProd.quantity = +findProd.quantity + +cart.quantity;
     } else {
       this.cartList.push(cart);
     }
-    console.log(this.cartList);
+    console.log("after add",this.cartList);
   }
 
   getInfoCart(): Cart[] {

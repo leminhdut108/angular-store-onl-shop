@@ -12,6 +12,7 @@ import { ConfirmationComponent } from './components/order/order.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { OptionSelectQuantityComponent } from './components/option-select-quantity/option-select-quantity.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { OptionSelectQuantityComponent } from './components/option-select-quanti
     ProductItemDetailComponent,
   ],
   imports: [
+    RouterModule,
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,

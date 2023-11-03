@@ -6,7 +6,7 @@ import Cart from '../models/cart';
 @Component({
   selector: 'app-option-select-quantity',
   templateUrl: './option-select-quantity.component.html',
-  styleUrls: ['./option-select-quantity.component.css']
+  styleUrls: ['./option-select-quantity.component.css'],
 })
 export class OptionSelectQuantityComponent implements OnInit {
   @Input() product: Product;
@@ -14,25 +14,24 @@ export class OptionSelectQuantityComponent implements OnInit {
   quantity: number = 1;
 
   constructor(private cartService: CartService) {
-    this.product =
-    {
+    this.product = {
       id: 0,
       name: '',
       price: 0,
       url: '',
-      description: ''
-    }
+      description: '',
+    };
     for (let i = 1; i <= 10; i++) {
       this.select.push(i);
     }
   }
-  ngOnInit() { }
+  ngOnInit() {}
 
   submitForm(): void {
     const cart: Cart = {
       ...this.product,
-      quantity: this.quantity
-    }
+      quantity: +this.quantity,
+    };
     this.cartService.addItemToCart(cart);
     alert('Added to cart!');
   }
